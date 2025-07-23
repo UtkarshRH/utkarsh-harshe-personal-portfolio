@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { MapPin, Briefcase, Code, Lightbulb, Rocket } from "lucide-react" // Added new icons for fun facts
-import SectionHeader from "@/components/ui/SectionHeader"
-import { Card, CardContent } from "@/components/ui/card" // Using Card for consistency
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { MapPin, Briefcase, Code, Lightbulb, Rocket } from "lucide-react"; // Added new icons for fun facts
+import SectionHeader from "@/components/ui/SectionHeader";
+import { Card, CardContent } from "@/components/ui/card"; // Using Card for consistency
 
 const AboutSection = () => {
-  const [currentGreetingIndex, setCurrentGreetingIndex] = useState(0)
+  const [currentGreetingIndex, setCurrentGreetingIndex] = useState(0);
 
   const greetings = [
     { text: "नमस्ते!", language: "Hindi", script: "Devanagari" },
@@ -25,7 +25,7 @@ const AboutSection = () => {
     { text: "வணக்கம்!", language: "Tamil", script: "Tamil" },
     { text: "హలో!", language: "Telugu", script: "Telugu" },
     { text: "ਸਤ ਸ੍ਰੀ ਅਕਾਲ!", language: "Punjabi", script: "Gurmukhi" },
-  ]
+  ];
 
   const multilingualText = [
     "hi",
@@ -43,15 +43,15 @@ const AboutSection = () => {
     "مرحبا",
     "Привет",
     "হ্যালো",
-  ]
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentGreetingIndex((prev) => (prev + 1) % greetings.length)
-    }, 2000)
+      setCurrentGreetingIndex((prev) => (prev + 1) % greetings.length);
+    }, 2000);
 
-    return () => clearInterval(interval)
-  }, [greetings.length])
+    return () => clearInterval(interval);
+  }, [greetings.length]);
 
   return (
     <section
@@ -94,7 +94,8 @@ const AboutSection = () => {
                 {greetings[currentGreetingIndex].text}
               </h3>
               <p className="text-lg text-gray-600 font-mono">
-                {greetings[currentGreetingIndex].language} • {greetings[currentGreetingIndex].script}
+                {greetings[currentGreetingIndex].language} •{" "}
+                {greetings[currentGreetingIndex].script}
               </p>
             </motion.div>
 
@@ -120,8 +121,12 @@ const AboutSection = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="space-y-4"
               >
-                <p className="text-2xl sm:text-3xl font-bold text-gray-900">My name is Utkarsh Harshe.</p>
-                <p className="text-lg sm:text-xl text-gray-600">Thank you for visiting my portfolio.</p>
+                <p className="text-2xl sm:text-3xl font-bold text-gray-900">
+                  My name is Utkarsh Harshe.
+                </p>
+                <p className="text-lg sm:text-xl text-gray-600">
+                  Thank you for visiting my portfolio.
+                </p>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -135,22 +140,27 @@ const AboutSection = () => {
               transition={{ duration: 0.8 }}
               className="space-y-6 bg-white/80 border border-gray-200 rounded-xl p-6 sm:p-8 shadow-lg shadow-gray-500/5"
             >
-              <h3 className="text-xl font-mono font-bold text-gray-800 mb-4">WHO_AM_I:</h3>
+              <h3 className="text-xl font-mono font-bold text-gray-800 mb-4">
+                WHO_AM_I:
+              </h3>
               <div className="space-y-4 text-gray-700 font-mono">
                 <p className="text-base sm:text-lg leading-relaxed">
-                  <span className="text-gray-600">{">"}</span> Passionate Full Stack Developer with expertise in
-                  cutting-edge web technologies
+                  <span className="text-gray-600">{">"}</span> Passionate Full
+                  Stack Developer with expertise in cutting-edge web
+                  technologies
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed">
-                  <span className="text-gray-600">{">"}</span> Currently engineering AI solutions at TBP CODOT LLP for
-                  Ola's Kruti.ai platform
+                  <span className="text-gray-600">{">"}</span> Currently
+                  engineering AI solutions at TBP CODOT LLP for Ola's Kruti.ai
+                  platform
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed">
-                  <span className="text-gray-600">{">"}</span> Specializing in React, Next.js, Node.js, and AI-powered
-                  applications
+                  <span className="text-gray-600">{">"}</span> Specializing in
+                  React, Next.js, Node.js, and AI-powered applications
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed">
-                  <span className="text-gray-600">{">"}</span> Building bridges between technology and human creativity
+                  <span className="text-gray-600">{">"}</span> Building bridges
+                  between technology and human creativity
                 </p>
               </div>
 
@@ -173,9 +183,11 @@ const AboutSection = () => {
               transition={{ duration: 0.8 }}
               className="space-y-6 bg-white/80 border border-gray-200 rounded-xl p-6 sm:p-8 shadow-lg shadow-gray-500/5"
             >
-              <h3 className="text-xl font-mono font-bold text-gray-800 mb-4">LANG_MATRIX:</h3>
+              <h3 className="text-xl font-mono font-bold text-gray-800 mb-4">
+                LANG_MATRIX:
+              </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {greetings.slice(0, 9).map((greeting, index) => (
+                {greetings.slice(0, 6).map((greeting, index) => (
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.05, rotate: 2 }}
@@ -188,8 +200,12 @@ const AboutSection = () => {
                     onClick={() => setCurrentGreetingIndex(index)}
                   >
                     <div className="text-center">
-                      <div className="text-2xl font-bold mb-2 text-gray-800">{greeting.text}</div>
-                      <div className="text-xs text-gray-500 font-mono">{greeting.language}</div>
+                      <div className="text-xl font-bold mb-2 text-gray-800">
+                        {greeting.text}
+                      </div>
+                      <div className="text-xs text-gray-500 font-mono">
+                        {greeting.language}
+                      </div>
                     </div>
                   </motion.div>
                 ))}
@@ -214,18 +230,30 @@ const AboutSection = () => {
                 <div className="grid sm:grid-cols-3 gap-6">
                   <div className="text-center flex flex-col items-center">
                     <Code className="w-10 h-10 text-gray-600 mb-2" />
-                    <div className="text-3xl font-bold text-gray-700 mb-2">∞</div>
-                    <div className="text-gray-600 font-mono text-sm">Lines of code written</div>
+                    <div className="text-3xl font-bold text-gray-700 mb-2">
+                      ∞
+                    </div>
+                    <div className="text-gray-600 font-mono text-sm">
+                      Lines of code written
+                    </div>
                   </div>
                   <div className="text-center flex flex-col items-center">
                     <Lightbulb className="w-10 h-10 text-gray-600 mb-2" />
-                    <div className="text-3xl font-bold text-gray-700 mb-2">24/7</div>
-                    <div className="text-gray-600 font-mono text-sm">Learning new technologies</div>
+                    <div className="text-3xl font-bold text-gray-700 mb-2">
+                      24/7
+                    </div>
+                    <div className="text-gray-600 font-mono text-sm">
+                      Learning new technologies
+                    </div>
                   </div>
                   <div className="text-center flex flex-col items-center">
                     <Rocket className="w-10 h-10 text-gray-600 mb-2" />
-                    <div className="text-3xl font-bold text-gray-700 mb-2">🚀</div>
-                    <div className="text-gray-600 font-mono text-sm">Always ready for new challenges</div>
+                    <div className="text-3xl font-bold text-gray-700 mb-2">
+                      🚀
+                    </div>
+                    <div className="text-gray-600 font-mono text-sm">
+                      Always ready for new challenges
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -234,7 +262,7 @@ const AboutSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AboutSection
+export default AboutSection;
