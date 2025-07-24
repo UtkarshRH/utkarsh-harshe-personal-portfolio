@@ -1,10 +1,14 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
-import "./globals.css"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" })
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
   title: "Utkarsh Harshe - Full Stack Developer & AI Engineer",
@@ -32,13 +36,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://utkarshharshe.dev",
     title: "Utkarsh Harshe - Full Stack Developer & AI Engineer",
-    description: "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and AI technologies.",
+    description:
+      "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and AI technologies.",
     siteName: "Utkarsh Harshe Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Utkarsh Harshe - Full Stack Developer & AI Engineer",
-    description: "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and AI technologies.",
+    description:
+      "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and AI technologies.",
   },
   robots: {
     index: true,
@@ -54,22 +60,29 @@ export const metadata: Metadata = {
   verification: {
     google: "your-google-verification-code",
   },
-    generator: 'v0.dev'
-}
+  generator: "v0.dev",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <link rel="canonical" href="https://utkarshharshe.dev" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#f9fafb" />
       </head>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        {children}
+        <Analytics />
+      </body>
     </html>
-  )
+  );
 }
