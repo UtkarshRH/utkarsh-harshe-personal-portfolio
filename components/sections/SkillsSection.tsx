@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import {
   Code,
   Wrench,
@@ -14,8 +14,8 @@ import {
   ClipboardList,
   Palette,
   Braces,
-} from "lucide-react"
-import SectionHeader from "@/components/ui/SectionHeader"
+} from "lucide-react";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const SkillsSection = () => {
   const skillCategories = [
@@ -52,13 +52,17 @@ const SkillsSection = () => {
         { name: "VS Code", icon: Code }, // Using generic Code for VS Code
         { name: "Postman", icon: MessageSquare },
         { name: "Jira", icon: ClipboardList },
+        { name: "Vercel", icon: Server },
       ],
       iconColor: "text-gray-600",
     },
-  ]
+  ];
 
   return (
-    <section id="skills" className="py-16 sm:py-20 bg-gradient-to-b from-white to-gray-50 relative">
+    <section
+      id="skills"
+      className="py-16 sm:py-20 bg-gradient-to-b from-white to-gray-50 relative"
+    >
       <div className="container mx-auto px-4 sm:px-6">
         <SectionHeader title="TECH_ARSENAL" />
 
@@ -77,7 +81,9 @@ const SkillsSection = () => {
                   <category.icon className={`w-6 h-6 ${category.iconColor}`} />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-mono font-bold text-gray-800">{category.title}</h3>
+                  <h3 className="text-2xl font-mono font-bold text-gray-800">
+                    {category.title}
+                  </h3>
                   <div className="w-16 h-0.5 bg-gray-600 mt-1"></div>
                 </div>
               </div>
@@ -85,7 +91,7 @@ const SkillsSection = () => {
               {/* Skills Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 {category.skills.map((skill, skillIndex) => {
-                  const SkillIcon = skill.icon // Assign the icon component to a variable
+                  const SkillIcon = skill.icon; // Assign the icon component to a variable
                   return (
                     <motion.div
                       key={skill.name}
@@ -100,7 +106,9 @@ const SkillsSection = () => {
                         <SkillIcon className="w-8 h-8 text-gray-600 mx-auto mb-2" />
 
                         {/* Skill Name */}
-                        <div className="text-gray-700 font-mono text-sm font-medium mb-2">{skill.name}</div>
+                        <div className="text-gray-700 font-mono text-sm font-medium mb-2">
+                          {skill.name}
+                        </div>
 
                         {/* Progress Indicator */}
                         <div className="flex justify-center space-x-1">
@@ -115,7 +123,7 @@ const SkillsSection = () => {
                         <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-600 group-hover:w-full transition-all duration-300"></div>
                       </div>
                     </motion.div>
-                  )
+                  );
                 })}
               </div>
             </motion.div>
@@ -123,7 +131,7 @@ const SkillsSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SkillsSection
+export default SkillsSection;
