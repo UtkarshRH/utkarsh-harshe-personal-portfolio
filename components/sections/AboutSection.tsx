@@ -129,7 +129,7 @@ const AboutSection = () => {
                   conversations —&nbsp;
                   <a
                     href="#contact"
-                    className="text-blue-600 underline hover:text-blue-800 transition whitespace-nowrap"
+                    className="text-[#d97706]  underline-none transition whitespace-nowrap"
                   >
                     let's connect
                   </a>

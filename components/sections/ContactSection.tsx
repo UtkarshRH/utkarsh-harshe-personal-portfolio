@@ -1,10 +1,17 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Mail, Phone, Github, Terminal } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import SectionHeader from "@/components/ui/SectionHeader"
+import { motion } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  Github,
+  Terminal,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const ContactSection = () => {
   const contactMethods = [
@@ -35,10 +42,31 @@ const ContactSection = () => {
       borderColor: "gray-200",
       hoverColor: "gray-400",
     },
-  ]
+    {
+      icon: Linkedin,
+      title: "PROFESSIONAL_NETWORK",
+      value: "linkedin.com/in/utkarshharshe",
+      href: "https://www.linkedin.com/in/utkarsh-r-harshe",
+      gradient: "from-white to-gray-100",
+      borderColor: "gray-200",
+      hoverColor: "gray-400",
+    },
+    {
+      icon: Instagram,
+      title: "SOCIAL_MEDIA",
+      value: "instagram.com/utkarshharshe19",
+      href: "https://www.instagram.com/utkarshharshe19",
+      gradient: "from-white to-gray-100",
+      borderColor: "gray-200",
+      hoverColor: "gray-400",
+    },
+  ];
 
   return (
-    <section id="contact" className="py-16 sm:py-20 bg-gradient-to-b from-gray-50 to-white relative">
+    <section
+      id="contact"
+      className="py-16 sm:py-20 bg-gradient-to-b from-gray-50 to-white relative"
+    >
       <div className="container mx-auto px-4 sm:px-6">
         <SectionHeader
           title="INIT_CONTACT"
@@ -65,11 +93,19 @@ const ContactSection = () => {
               >
                 <CardContent className="p-6 sm:p-8">
                   <contact.icon className="w-12 h-12 text-gray-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-mono font-bold text-gray-800 mb-2">{contact.title}</h3>
+                  <h3 className="text-xl font-mono font-bold text-gray-800 mb-2">
+                    {contact.title}
+                  </h3>
                   <a
                     href={contact.href}
-                    target={contact.href.startsWith("http") ? "_blank" : undefined}
-                    rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    target={
+                      contact.href.startsWith("http") ? "_blank" : undefined
+                    }
+                    rel={
+                      contact.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     className={`text-gray-600 hover:text-gray-700 transition-colors font-mono text-sm break-all`}
                   >
                     {contact.value}
@@ -87,7 +123,9 @@ const ContactSection = () => {
           className="text-center mt-12"
         >
           <Button
-            onClick={() => window.open("mailto:utkarshharshe06@gmail.com", "_blank")}
+            onClick={() =>
+              window.open("mailto:utkarshharshe06@gmail.com", "_blank")
+            }
             size="lg"
             className="bg-gradient-to-r from-amber-600 to-orange-700 text-white font-mono px-8 py-3 border-2 border-amber-500 hover:shadow-lg hover:shadow-amber-500/25 transition-all duration-300 rounded-lg hover:border-amber-600"
           >
@@ -97,7 +135,7 @@ const ContactSection = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ContactSection
+export default ContactSection;
