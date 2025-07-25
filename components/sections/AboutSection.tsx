@@ -122,10 +122,18 @@ const AboutSection = () => {
                 className="space-y-4"
               >
                 <p className="text-2xl sm:text-3xl font-bold text-gray-900">
-                  My name is Utkarsh Harshe.
+                  Let’s build something impactful together.
                 </p>
                 <p className="text-lg sm:text-xl text-gray-600">
-                  Thank you for visiting my portfolio.
+                  Open to exciting opportunities, collaborations, and
+                  conversations —&nbsp;
+                  <a
+                    href="#contact"
+                    className="text-blue-600 underline hover:text-blue-800 transition whitespace-nowrap"
+                  >
+                    let's connect
+                  </a>
+                  .
                 </p>
               </motion.div>
             </motion.div>
