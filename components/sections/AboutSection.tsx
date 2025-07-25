@@ -56,7 +56,7 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="py-16 sm:py-20 bg-gradient-to-br from-gray-100 via-white to-gray-50 relative overflow-hidden"
+      className="py-16 sm:py-20 bg-gradient-to-br from-gray-100 via-white to-gray-50 relative overflow-hidden dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
@@ -90,10 +90,10 @@ const AboutSection = () => {
               transition={{ duration: 0.5 }}
               className="mb-8"
             >
-              <h3 className="text-6xl sm:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 bg-clip-text text-transparent mb-4">
+              <h3 className="text-6xl sm:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 bg-clip-text text-transparent mb-4 dark:from-gray-300 dark:via-gray-400 dark:to-gray-300">
                 {greetings[currentGreetingIndex].text}
               </h3>
-              <p className="text-lg text-gray-600 font-mono">
+              <p className="text-lg text-gray-600 font-mono dark:text-gray-300">
                 {greetings[currentGreetingIndex].language} •{" "}
                 {greetings[currentGreetingIndex].script}
               </p>
@@ -106,7 +106,7 @@ const AboutSection = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="mb-8"
             >
-              <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mb-6 flex flex-wrap justify-center gap-2">
+              <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mb-6 flex flex-wrap justify-center gap-2 dark:text-gray-300">
                 {multilingualText.map((greeting, index) => (
                   <span key={index} className="inline-block">
                     {greeting}
@@ -121,10 +121,10 @@ const AboutSection = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="space-y-4"
               >
-                <p className="text-2xl sm:text-3xl font-bold text-gray-900">
+                <p className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100">
                   Let’s build something impactful together.
                 </p>
-                <p className="text-lg sm:text-xl text-gray-600">
+                <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300">
                   Open to exciting opportunities, collaborations, and
                   conversations —&nbsp;
                   <a
@@ -146,38 +146,38 @@ const AboutSection = () => {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-6 bg-white/80 border border-gray-200 rounded-xl p-6 sm:p-8 shadow-lg shadow-gray-500/5"
+              className="space-y-6 bg-white/80 border border-gray-200 rounded-xl p-6 sm:p-8 shadow-lg shadow-gray-500/5 dark:bg-gray-800 dark:border-gray-700"
             >
-              <h3 className="text-xl font-mono font-bold text-gray-800 mb-4">
+              <h3 className="text-xl font-mono font-bold text-gray-800 mb-4 dark:text-gray-100">
                 WHO_AM_I:
               </h3>
-              <div className="space-y-4 text-gray-700 font-mono">
+              <div className="space-y-4 text-gray-700 font-mono dark:text-gray-300">
                 <p className="text-base sm:text-lg leading-relaxed">
-                  <span className="text-gray-600">{">"}</span> Passionate Full
+                  <span className="text-gray-600 dark:text-gray-400">{">"}</span> Passionate Full
                   Stack Developer with expertise in cutting-edge web
                   technologies
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed">
-                  <span className="text-gray-600">{">"}</span> Currently
+                  <span className="text-gray-600 dark:text-gray-400">{">"}</span> Currently
                   engineering AI solutions at TBP CODOT LLP for Ola's Kruti.ai
                   platform
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed">
-                  <span className="text-gray-600">{">"}</span> Specializing in
+                  <span className="text-gray-600 dark:text-gray-400">{">"}</span> Specializing in
                   React, Next.js, Node.js, and AI-powered applications
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed">
-                  <span className="text-gray-600">{">"}</span> Building bridges
+                  <span className="text-gray-600 dark:text-gray-400">{">"}</span> Building bridges
                   between technology and human creativity
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-4 pt-4">
-                <div className="flex items-center space-x-2 text-gray-600 font-mono">
+                <div className="flex items-center space-x-2 text-gray-600 font-mono dark:text-gray-400">
                   <MapPin className="w-5 h-5" />
                   <span>Bangalore, Karnataka</span>
                 </div>
-                <div className="flex items-center space-x-2 text-gray-600 font-mono">
+                <div className="flex items-center space-x-2 text-gray-600 font-mono dark:text-gray-400">
                   <Briefcase className="w-5 h-5" />
                   <span>Full Stack Developer</span>
                 </div>
@@ -189,9 +189,9 @@ const AboutSection = () => {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-6 bg-white/80 border border-gray-200 rounded-xl p-6 sm:p-8 shadow-lg shadow-gray-500/5"
+              className="space-y-6 bg-white/80 border border-gray-200 rounded-xl p-6 sm:p-8 shadow-lg shadow-gray-500/5 dark:bg-gray-800 dark:border-gray-700"
             >
-              <h3 className="text-xl font-mono font-bold text-gray-800 mb-4">
+              <h3 className="text-xl font-mono font-bold text-gray-800 mb-4 dark:text-gray-100">
                 LANG_MATRIX:
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -202,16 +202,16 @@ const AboutSection = () => {
                     whileTap={{ scale: 0.95 }}
                     className={`p-4 rounded-lg border-2 cursor-pointer transition-all duration-300 backdrop-blur-sm ${
                       index === currentGreetingIndex
-                        ? "border-gray-500 bg-gray-100 shadow-lg shadow-gray-500/20"
-                        : "border-gray-200 bg-white/80 hover:border-gray-400 hover:shadow-md hover:bg-gray-50"
+                        ? "border-gray-500 bg-gray-100 shadow-lg shadow-gray-500/20 dark:border-gray-400 dark:bg-gray-700"
+                        : "border-gray-200 bg-white/80 hover:border-gray-400 hover:shadow-md hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-gray-600 dark:hover:shadow-lg dark:hover:bg-gray-700"
                     }`}
                     onClick={() => setCurrentGreetingIndex(index)}
                   >
                     <div className="text-center">
-                      <div className="text-xl font-bold mb-2 text-gray-800">
+                      <div className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">
                         {greeting.text}
                       </div>
-                      <div className="text-xs text-gray-500 font-mono">
+                      <div className="text-xs text-gray-500 font-mono dark:text-gray-400">
                         {greeting.language}
                       </div>
                     </div>
@@ -228,38 +228,38 @@ const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-12"
           >
-            <Card className="bg-gradient-to-r from-white to-gray-50 border border-gray-200 shadow-xl shadow-gray-500/10 p-6 sm:p-8">
+            <Card className="bg-gradient-to-r from-white to-gray-50 border border-gray-200 shadow-xl shadow-gray-500/10 p-6 sm:p-8 dark:from-gray-900 dark:to-gray-800 dark:border-gray-700 dark:shadow-none">
               <CardContent className="p-0">
-                <h4 className="text-2xl font-bold text-gray-800 mb-6 font-mono text-center">
-                  <span className="text-gray-600">{"<"}</span>
+                <h4 className="text-2xl font-bold text-gray-800 mb-6 font-mono text-center dark:text-gray-100">
+                  <span className="text-gray-600 dark:text-gray-400">{"<"}</span>
                   FUN_FACTS
-                  <span className="text-gray-600">{"/>"}</span>
+                  <span className="text-gray-600 dark:text-gray-400">{"/>"}</span>
                 </h4>
                 <div className="grid sm:grid-cols-3 gap-6">
                   <div className="text-center flex flex-col items-center">
-                    <Code className="w-10 h-10 text-gray-600 mb-2" />
-                    <div className="text-3xl font-bold text-gray-700 mb-2">
+                    <Code className="w-10 h-10 text-gray-600 mb-2 dark:text-gray-400" />
+                    <div className="text-3xl font-bold text-gray-700 mb-2 dark:text-gray-100">
                       ∞
                     </div>
-                    <div className="text-gray-600 font-mono text-sm">
+                    <div className="text-gray-600 font-mono text-sm dark:text-gray-400">
                       Lines of code written
                     </div>
                   </div>
                   <div className="text-center flex flex-col items-center">
-                    <Lightbulb className="w-10 h-10 text-gray-600 mb-2" />
-                    <div className="text-3xl font-bold text-gray-700 mb-2">
+                    <Lightbulb className="w-10 h-10 text-gray-600 mb-2 dark:text-gray-400" />
+                    <div className="text-3xl font-bold text-gray-700 mb-2 dark:text-gray-100">
                       24/7
                     </div>
-                    <div className="text-gray-600 font-mono text-sm">
+                    <div className="text-gray-600 font-mono text-sm dark:text-gray-400">
                       Learning new technologies
                     </div>
                   </div>
                   <div className="text-center flex flex-col items-center">
-                    <Rocket className="w-10 h-10 text-gray-600 mb-2" />
-                    <div className="text-3xl font-bold text-gray-700 mb-2">
+                    <Rocket className="w-10 h-10 text-gray-600 mb-2 dark:text-gray-400" />
+                    <div className="text-3xl font-bold text-gray-700 mb-2 dark:text-gray-100">
                       🚀
                     </div>
-                    <div className="text-gray-600 font-mono text-sm">
+                    <div className="text-gray-600 font-mono text-sm dark:text-gray-400">
                       Always ready for new challenges
                     </div>
                   </div>
