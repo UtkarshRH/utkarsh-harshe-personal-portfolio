@@ -44,7 +44,7 @@ const ContactSection = () => {
     },
     {
       icon: Linkedin,
-      title: "PROFESSIONAL_NETWORK",
+      title: "TECH_NETWORK",
       value: "linkedin.com/in/utkarshharshe",
       href: "https://www.linkedin.com/in/utkarsh-r-harshe",
       gradient: "from-white to-gray-100",
@@ -65,18 +65,12 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="py-16 sm:py-20 bg-gradient-to-b from-gray-50 to-white relative"
+      className="py-16 sm:py-20 bg-gradient-to-b from-gray-50 to-white relative dark:from-gray-900 dark:to-gray-800"
     >
       <div className="container mx-auto px-4 sm:px-6">
         <SectionHeader
           title="INIT_CONTACT"
-          subtitle={
-            <>
-              {">"} Ready to collaborate on next-generation projects
-              <br />
-              {">"} Let's build something extraordinary together
-            </>
-          }
+          subtitle="> Ready to collaborate on next-generation projects > Let's build something extraordinary together"
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
@@ -89,11 +83,11 @@ const ContactSection = () => {
               whileHover={{ scale: 1.05, rotateY: 10 }}
             >
               <Card
-                className={`bg-gradient-to-br ${contact.gradient} border border-${contact.borderColor} backdrop-blur-sm text-center hover:border-gray-400 transition-all duration-300 h-full shadow-sm hover:shadow-md`}
+                className={`bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 backdrop-blur-sm text-center hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 h-full shadow-sm hover:shadow-md dark:shadow-lg`}
               >
                 <CardContent className="p-6 sm:p-8">
-                  <contact.icon className="w-12 h-12 text-gray-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-mono font-bold text-gray-800 mb-2">
+                  <contact.icon className="w-12 h-12 text-gray-600 dark:text-gray-400 mx-auto mb-4" />
+                  <h3 className="text-xl font-mono font-bold text-gray-900 dark:text-gray-100 mb-2">
                     {contact.title}
                   </h3>
                   <a
@@ -106,7 +100,7 @@ const ContactSection = () => {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className={`text-gray-600 hover:text-gray-700 transition-colors font-mono text-sm break-all`}
+                    className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-mono text-sm break-all"
                   >
                     {contact.value}
                   </a>

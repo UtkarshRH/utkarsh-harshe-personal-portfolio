@@ -42,7 +42,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 pt-20 sm:pt-24"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 pt-20 sm:pt-24 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
     >
       <FloatingParticles />
 
@@ -74,8 +74,8 @@ const HeroSection = () => {
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
             className="relative mx-auto w-24 h-24 sm:w-32 sm:h-32 mb-8"
           >
-            <div className="w-full h-full rounded-full bg-gradient-to-r from-gray-300 to-gray-400 p-1 shadow-xl shadow-gray-300/25">
-              <div className="w-full h-full rounded-full bg-white flex items-center justify-center relative overflow-hidden">
+            <div className="w-full h-full rounded-full bg-gradient-to-r from-gray-300 to-gray-400 p-1 shadow-xl shadow-gray-300/25 dark:from-gray-700 dark:to-gray-600">
+              <div className="w-full h-full rounded-full bg-white dark:bg-gray-900 flex items-center justify-center relative overflow-hidden">
                 <Image
                   src="/utkarsh-harshe.jpg"
                   alt="Utkarsh Harshe Profile Picture"
@@ -83,11 +83,11 @@ const HeroSection = () => {
                   height={128}
                   className="w-full h-full object-cover rounded-full"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-200/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-200/20 to-transparent dark:from-gray-700/20" />
               </div>
             </div>
             <motion.div
-              className="absolute -inset-4 border border-gray-200/50 rounded-full"
+              className="absolute -inset-4 border border-gray-200/50 rounded-full dark:border-gray-700/50"
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
             />
@@ -101,9 +101,9 @@ const HeroSection = () => {
             className="space-y-4"
           >
             <GlitchText className="text-4xl sm:text-6xl lg:text-7xl font-mono font-bold">
-              <span className="text-gray-900">UTKARSH</span>
+              <span className="text-gray-900 dark:text-gray-100">UTKARSH</span>
               <br />
-              <span className="text-gray-700">HARSHE</span>
+              <span className="text-gray-700 dark:text-gray-300">HARSHE</span>
             </GlitchText>
           </motion.div>
 
@@ -115,19 +115,19 @@ const HeroSection = () => {
             className="space-y-4"
           >
             <div className="flex items-center justify-center space-x-2 text-base sm:text-xl font-mono">
-              <Terminal className="w-5 h-5 text-gray-600" />
-              <span className="text-gray-600">$</span>
-              <span className="text-gray-800 text-sm sm:text-xl md:text-2xl lg:text-xl">{typedText}</span>
+              <Terminal className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+              <span className="text-gray-600 dark:text-gray-400">$</span>
+              <span className="text-gray-800 dark:text-gray-100 text-sm sm:text-xl md:text-2xl lg:text-xl">{typedText}</span>
               <motion.span
                 animate={{ opacity: [1, 0, 1] }}
                 transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
-                className="text-gray-600"
+                className="text-gray-600 dark:text-gray-400"
               >
                 |
               </motion.span>
             </div>
 
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-mono">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-mono">
               {">"} Building next-generation web applications with React, Next.js, and AI technologies
               <br />
               {">"} Currently contributing to Ola's Kruti.ai platform
@@ -153,7 +153,7 @@ const HeroSection = () => {
               onClick={() => scrollToSection("contact")}
               variant="outline"
               size="lg"
-              className="border-2 border-gray-600 text-gray-700 hover:bg-gray-50 font-mono px-6 sm:px-8 py-3 hover:shadow-lg hover:shadow-gray-500/25 transition-all duration-300 rounded-lg"
+              className="border-2 border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 font-mono px-6 sm:px-8 py-3 hover:shadow-lg hover:shadow-gray-500/25 transition-all duration-300 rounded-lg"
             >
               <Terminal className="w-5 h-5 mr-2" />
               Get In Touch
@@ -173,12 +173,12 @@ const HeroSection = () => {
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group relative p-3 border border-gray-300 hover:border-gray-500 transition-all duration-300 hover:bg-gray-50 rounded-lg shadow-sm hover:shadow-md"
+                className="group relative p-3 border border-gray-300 hover:border-gray-500 transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg shadow-sm hover:shadow-md"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Icon className="w-6 h-6 text-gray-600 group-hover:text-gray-700 transition-colors" />
-                <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                <Icon className="w-6 h-6 text-gray-600 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-white transition-colors" />
+                <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-gray-500 opacity-0 group-hover:opacity-100 dark:text-gray-400 transition-opacity">
                   {label}
                 </span>
               </motion.a>

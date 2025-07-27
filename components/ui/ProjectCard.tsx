@@ -1,20 +1,25 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Globe, Github, CircuitBoard } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import type { Project } from "@/types/project"
+import { motion } from "framer-motion";
+import { Globe, Github, CircuitBoard } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import type { Project } from "@/types/project";
 
 interface ProjectCardProps {
-  project: Project
+  project: Project;
 }
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
-
   return (
-    <Card className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 backdrop-blur-sm overflow-hidden group hover:border-gray-400 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-500/10">
+    <Card className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 backdrop-blur-sm overflow-hidden group hover:border-gray-400 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-500/10 dark:from-gray-800 dark:to-gray-700 dark:border-gray-700 dark:hover:border-gray-600">
       {/* Project Preview */}
       <div
         className={`relative h-48 sm:h-64 bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center overflow-hidden`}
@@ -23,11 +28,19 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
         {/* Project Visual */}
         <div className="text-center text-white z-10">
-          <div className="text-4xl sm:text-6xl font-mono font-bold mb-4">{project.title}</div>
-          <div className="text-lg sm:text-xl opacity-80 font-mono">{project.subtitle}</div>
+          <div className="text-4xl sm:text-6xl font-mono font-bold mb-4">
+            {project.title}
+          </div>
+          <div className="text-lg sm:text-xl opacity-80 font-mono">
+            {project.subtitle}
+          </div>
           <div className="flex justify-center space-x-4 mt-4">
-            {project.isLive && <Badge className="bg-gray-600 text-white font-mono">LIVE</Badge>}
-            <Badge className="bg-gray-500 text-white font-mono">{project.category}</Badge>
+            {project.isLive && (
+              <Badge className="bg-gray-600 text-white font-mono">LIVE</Badge>
+            )}
+            <Badge className="bg-gray-500 text-white font-mono">
+              {project.category}
+            </Badge>
           </div>
         </div>
 
@@ -59,16 +72,22 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       <CardHeader>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <div className="mb-4 sm:mb-0">
-            <CardTitle className="text-xl sm:text-2xl text-gray-800 font-mono">{project.title}</CardTitle>
-            <CardDescription className="text-gray-600 font-mono mt-2">{project.description}</CardDescription>
+            <CardTitle className="text-xl sm:text-2xl text-gray-800 font-mono dark:text-gray-100">
+              {project.title}
+            </CardTitle>
+            <CardDescription className="text-gray-600 font-mono mt-2 dark:text-gray-300">
+              {project.description}
+            </CardDescription>
           </div>
 
           <div className="flex space-x-2">
             {project.liveUrl && (
               <Button
                 onClick={() => {
-                  if(project.liveUrl) {
-                  window.open(project?.liveUrl, "_blank")}}}
+                  if (project.liveUrl) {
+                    window.open(project?.liveUrl, "_blank");
+                  }
+                }}
                 size="sm"
                 className="bg-gray-600 hover:bg-gray-700 text-white font-mono"
               >
@@ -76,15 +95,17 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 LIVE
               </Button>
             )}
-            {project.isGithubUrl && <Button
-              onClick={() => window.open(project.githubUrl, "_blank")}
-              size="sm"
-              variant="outline"
-              className="border-gray-400 text-gray-600 hover:bg-gray-100 font-mono"
-            >
-              <Github className="w-4 h-4 mr-2" />
-              CODE
-            </Button>}
+            {project.isGithubUrl && (
+              <Button
+                onClick={() => window.open(project.githubUrl, "_blank")}
+                size="sm"
+                variant="outline"
+                className="border-gray-400 text-gray-600 hover:bg-gray-100 font-mono"
+              >
+                <Github className="w-4 h-4 mr-2" />
+                CODE
+              </Button>
+            )}
           </div>
         </div>
       </CardHeader>
@@ -93,13 +114,15 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         <div className="space-y-6">
           {/* Technologies */}
           <div>
-            <h4 className="text-gray-800 font-mono font-semibold mb-3">TECH_STACK:</h4>
+            <h4 className="text-gray-800 font-mono font-semibold mb-3 dark:text-gray-100">
+              TECH_STACK:
+            </h4>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
                 <Badge
                   key={tech}
                   variant="secondary"
-                  className="bg-gray-200 text-gray-700 font-mono border border-gray-300"
+                  className="bg-gray-200 text-gray-700 font-mono border border-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
                 >
                   {tech}
                 </Badge>
@@ -109,11 +132,16 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
           {/* Features */}
           <div>
-            <h4 className="text-gray-800 font-mono font-semibold mb-3">KEY_FEATURES:</h4>
+            <h4 className="text-gray-800 font-mono font-semibold mb-3 dark:text-gray-100">
+              KEY_FEATURES:
+            </h4>
             <ul className="space-y-2">
               {project.features.map((feature, i) => (
-                <li key={i} className="flex items-start space-x-3 text-gray-700 font-mono text-sm">
-                  <CircuitBoard className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" />
+                <li
+                  key={i}
+                  className="flex items-start space-x-3 text-gray-700 font-mono text-sm dark:text-gray-300"
+                >
+                  <CircuitBoard className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0 dark:text-gray-400" />
                   <span>{feature}</span>
                 </li>
               ))}
@@ -122,7 +150,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </div>
       </CardContent>
     </Card>
-  )
-}
+  );
+};
 
-export default ProjectCard
+export default ProjectCard;

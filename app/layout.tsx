@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/next";
 // Speed Insights import
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetbrainsMono = JetBrains_Mono({
@@ -85,7 +86,9 @@ export default function RootLayout({
         <meta name="theme-color" content="#f9fafb" />
       </head>
       <body className="font-sans antialiased">
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
       </body>
