@@ -44,7 +44,7 @@ const ContactSection = () => {
     },
     {
       icon: Linkedin,
-      title: "PROFESSIONAL_NETWORK",
+      title: "TECH_NETWORK",
       value: "linkedin.com/in/utkarshharshe",
       href: "https://www.linkedin.com/in/utkarsh-r-harshe",
       gradient: "from-white to-gray-100",

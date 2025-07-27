@@ -19,7 +19,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <Card className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 backdrop-blur-sm overflow-hidden group hover:border-gray-400 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-500/10">
+    <Card className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 backdrop-blur-sm overflow-hidden group hover:border-gray-400 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-500/10 dark:from-gray-800 dark:to-gray-700 dark:border-gray-700 dark:hover:border-gray-600">
       {/* Project Preview */}
       <div
         className={`relative h-48 sm:h-64 bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center overflow-hidden`}
@@ -72,10 +72,10 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       <CardHeader>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <div className="mb-4 sm:mb-0">
-            <CardTitle className="text-xl sm:text-2xl text-gray-800 font-mono">
+            <CardTitle className="text-xl sm:text-2xl text-gray-800 font-mono dark:text-gray-100">
               {project.title}
             </CardTitle>
-            <CardDescription className="text-gray-600 font-mono mt-2">
+            <CardDescription className="text-gray-600 font-mono mt-2 dark:text-gray-300">
               {project.description}
             </CardDescription>
           </div>
@@ -114,7 +114,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         <div className="space-y-6">
           {/* Technologies */}
           <div>
-            <h4 className="text-gray-800 font-mono font-semibold mb-3">
+            <h4 className="text-gray-800 font-mono font-semibold mb-3 dark:text-gray-100">
               TECH_STACK:
             </h4>
             <div className="flex flex-wrap gap-2">
@@ -122,7 +122,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 <Badge
                   key={tech}
                   variant="secondary"
-                  className="bg-gray-200 text-gray-700 font-mono border border-gray-300"
+                  className="bg-gray-200 text-gray-700 font-mono border border-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
                 >
                   {tech}
                 </Badge>
@@ -132,16 +132,16 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
           {/* Features */}
           <div>
-            <h4 className="text-gray-800 font-mono font-semibold mb-3">
+            <h4 className="text-gray-800 font-mono font-semibold mb-3 dark:text-gray-100">
               KEY_FEATURES:
             </h4>
             <ul className="space-y-2">
               {project.features.map((feature, i) => (
                 <li
                   key={i}
-                  className="flex items-start space-x-3 text-gray-700 font-mono text-sm"
+                  className="flex items-start space-x-3 text-gray-700 font-mono text-sm dark:text-gray-300"
                 >
-                  <CircuitBoard className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" />
+                  <CircuitBoard className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0 dark:text-gray-400" />
                   <span>{feature}</span>
                 </li>
               ))}

@@ -20,9 +20,7 @@ const ProjectsSection = () => {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               className={`${index === 0 ? "lg:col-span-2" : ""}`}
             >
-              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-600 rounded-lg shadow-sm dark:shadow-lg">
-                <ProjectCard project={project} />
-              </div>
+              <ProjectCard project={project} />
             </motion.div>
           ))}
         </div>
