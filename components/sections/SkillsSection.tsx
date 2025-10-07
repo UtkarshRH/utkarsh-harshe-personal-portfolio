@@ -14,6 +14,11 @@ import {
   ClipboardList,
   Palette,
   Braces,
+  Workflow,
+  Box,
+  Terminal,
+  DatabaseZap,
+  PawPrint
 } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 
@@ -39,6 +44,9 @@ const SkillsSection = () => {
         { name: "Node.js", icon: Server },
         { name: "Express.js", icon: Server },
         { name: "Tailwind CSS", icon: Paintbrush },
+        { name: "TanStack Query", icon: DatabaseZap },
+        { name: "Zustand", icon: PawPrint },
+        { name: "Redux", icon: Workflow },
       ],
       iconColor: "text-gray-600 dark:text-gray-400",
     },
@@ -49,7 +57,10 @@ const SkillsSection = () => {
         { name: "MongoDB", icon: Database },
         { name: "SQL", icon: Database },
         { name: "Git", icon: GitBranch },
-        { name: "VS Code", icon: Code }, // Using generic Code for VS Code
+        { name: "GitHub Actions", icon: Workflow }, // or use Activity if Workflow not available
+        { name: "Docker", icon: Box },
+        { name: "VS Code", icon: Code },
+        { name: "Cursor", icon: Terminal },
         { name: "Postman", icon: MessageSquare },
         { name: "Jira", icon: ClipboardList },
         { name: "Vercel", icon: Server },
