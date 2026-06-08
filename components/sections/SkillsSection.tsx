@@ -11,14 +11,17 @@ import {
   Server,
   GitBranch,
   MessageSquare,
-  ClipboardList,
   Palette,
   Braces,
   Workflow,
   Box,
   Terminal,
   DatabaseZap,
-  PawPrint
+  PawPrint,
+  Cpu,
+  Brain,
+  ShieldAlert,
+  ServerCrash
 } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 
@@ -28,42 +31,54 @@ const SkillsSection = () => {
       title: "LANGUAGES",
       icon: Code,
       skills: [
+        { name: "JavaScript", icon: Braces },
+        { name: "TypeScript", icon: Braces },
+        { name: "Python", icon: Terminal },
+        { name: "Java", icon: Code },
         { name: "HTML", icon: Code },
         { name: "CSS", icon: Palette },
-        { name: "JavaScript", icon: Braces },
-        { name: "Java", icon: Code }, // Using generic Code for Java
+        { name: "SQL", icon: Database },
       ],
       iconColor: "text-gray-600 dark:text-gray-400",
     },
     {
-      title: "FRAMEWORKS",
-      icon: Wrench,
+      title: "FRONTEND",
+      icon: Atom,
       skills: [
         { name: "React.js", icon: Atom },
         { name: "Next.js", icon: ArrowRightCircle },
-        { name: "Node.js", icon: Server },
-        { name: "Express.js", icon: Server },
-        { name: "Tailwind CSS", icon: Paintbrush },
-        { name: "TanStack Query", icon: DatabaseZap },
+        { name: "Redux Toolkit", icon: Workflow },
         { name: "Zustand", icon: PawPrint },
-        { name: "Redux", icon: Workflow },
+        { name: "TanStack Query", icon: DatabaseZap },
+        { name: "Tailwind CSS", icon: Paintbrush },
+        { name: "Shadcn UI", icon: Palette },
+        { name: "PWA", icon: Box },
       ],
       iconColor: "text-gray-600 dark:text-gray-400",
     },
     {
-      title: "DATABASES & TOOLS",
-      icon: Database,
+      title: "BACKEND & DATABASES",
+      icon: Server,
       skills: [
+        { name: "Node.js", icon: Server },
+        { name: "Express.js", icon: Server },
+        { name: "FastAPI", icon: Server },
         { name: "MongoDB", icon: Database },
-        { name: "SQL", icon: Database },
-        { name: "Git", icon: GitBranch },
-        { name: "GitHub Actions", icon: Workflow }, // or use Activity if Workflow not available
+        { name: "MySQL", icon: Database },
+        { name: "Redis", icon: DatabaseZap },
+      ],
+      iconColor: "text-gray-600 dark:text-gray-400",
+    },
+    {
+      title: "CLOUD, AI & DEVOPS",
+      icon: Cpu,
+      skills: [
+        { name: "Google Vertex AI", icon: Brain },
+        { name: "OpenAI", icon: Brain },
+        { name: "AWS S3", icon: Box },
         { name: "Docker", icon: Box },
-        { name: "VS Code", icon: Code },
-        { name: "Cursor", icon: Terminal },
-        { name: "Postman", icon: MessageSquare },
-        { name: "Jira", icon: ClipboardList },
-        { name: "Vercel", icon: Server },
+        { name: "GitHub Actions", icon: Workflow },
+        { name: "Git", icon: GitBranch },
       ],
       iconColor: "text-gray-600 dark:text-gray-400",
     },
@@ -108,7 +123,7 @@ const SkillsSection = () => {
                       key={skill.name}
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: skillIndex * 0.1 }}
+                      transition={{ duration: 0.5, delay: skillIndex * 0.05 }}
                       whileHover={{ scale: 1.05, y: -2 }}
                       className="group cursor-pointer"
                     >

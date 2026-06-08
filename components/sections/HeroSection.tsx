@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Terminal, Rocket, Mail, Github, Phone } from "lucide-react"
+import { Terminal, Rocket, Mail, Github, Phone, FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import GlitchText from "@/components/ui/GlitchText"
 import FloatingParticles from "@/components/ui/FloatingParticles"
@@ -130,7 +130,7 @@ const HeroSection = () => {
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-mono">
               {">"} Building next-generation web applications with React, Next.js, and AI technologies
               <br />
-              {">"} Currently contributing to Ola's Kruti.ai platform
+              {">"} SDE 1 (Full-time) at Ola | Contributing to Ola Electric & Call Analytics
             </p>
           </motion.div>
 
@@ -148,6 +148,15 @@ const HeroSection = () => {
             >
               <Rocket className="w-5 h-5 mr-2" />
               View Projects
+            </Button>
+            <Button
+              onClick={() => window.open("/UtkarshRH.pdf", "_blank")}
+              variant="outline"
+              size="lg"
+              className="border-2 border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 font-mono px-6 sm:px-8 py-3 hover:shadow-lg hover:shadow-gray-500/25 transition-all duration-300 rounded-lg"
+            >
+              <FileText className="w-5 h-5 mr-2" />
+              Resume
             </Button>
             <Button
               onClick={() => scrollToSection("contact")}

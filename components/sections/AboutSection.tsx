@@ -159,8 +159,8 @@ const AboutSection = () => {
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed">
                   <span className="text-gray-600 dark:text-gray-400">{">"}</span> Currently
-                  engineering AI solutions at TBP CODOT LLP for Ola's Kruti.ai
-                  platform
+                  working as an SDE 1 (Full-time) at Ola, contributing to Ola Electric
+                  platforms
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed">
                   <span className="text-gray-600 dark:text-gray-400">{">"}</span> Specializing in

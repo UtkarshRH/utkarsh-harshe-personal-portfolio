@@ -17,9 +17,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Utkarsh Harshe - Full Stack Developer & AI Engineer",
+  title: "Utkarsh Harshe - SDE 1 at Ola | Full Stack Developer & AI Engineer",
   description:
-    "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and AI technologies. Currently contributing to Ola's Kruti.ai platform. Based in Bangalore, India.",
+    "Experienced SDE 1 specializing in React, Next.js, Node.js, and AI engineering. Currently at Ola contributing to Ola Electric and AI call analytics. Based in Bangalore, India.",
   keywords: [
     "Full Stack Developer",
     "React Developer",
@@ -30,7 +30,8 @@ export const metadata: Metadata = {
     "Frontend Developer",
     "Backend Developer",
     "Utkarsh Harshe",
-    "Kruti.ai",
+    "Ola Electric",
+    "Ola Krutrim",
     "Ola",
     "Bangalore Developer",
   ],
@@ -41,16 +42,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://utkarshharshe.dev",
-    title: "Utkarsh Harshe - Full Stack Developer & AI Engineer",
+    title: "Utkarsh Harshe - SDE 1 at Ola | Full Stack Developer & AI Engineer",
     description:
-      "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and AI technologies.",
+      "Experienced SDE 1 specializing in React, Next.js, Node.js, and AI engineering. Currently at Ola contributing to Ola Electric.",
     siteName: "Utkarsh Harshe Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Utkarsh Harshe - Full Stack Developer & AI Engineer",
+    title: "Utkarsh Harshe - SDE 1 at Ola | Full Stack Developer & AI Engineer",
     description:
-      "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and AI technologies.",
+      "Experienced SDE 1 specializing in React, Next.js, Node.js, and AI engineering. Currently at Ola contributing to Ola Electric.",
   },
   robots: {
     index: true,

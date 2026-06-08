@@ -1,65 +1,116 @@
-export interface Project {
-  id: string
-  title: string
-  subtitle: string
-  description: string
-  technologies: string[]
-  features: string[]
-  liveUrl: string | null
-  githubUrl: string
-  isLive: boolean
-  category: string
-  gradient: string
-  isGithubUrl: boolean,
-}
+import type { Project } from "@/types/project"
 
 export const projectsData: Project[] = [
   {
+    id: "ola-purchase",
+    title: "Ola Electric Purchase Platform",
+    subtitle: "Customer Buying Flow & Payments",
+    description:
+      "End-to-end customer purchase journey, vehicle registration systems, and finance/payment handling at Ola Electric.",
+    technologies: ["React", "Next.js", "Tailwind CSS", "Redux Toolkit", "FastAPI"],
+    features: [
+      "Owned the Extended Warranty feature end-to-end (buying flow, FAQ surface, and payment methods)",
+      "Built the Credit & financing experience, including down-payment flow, credit balance, and dashboard",
+      "Delivered unified UPI payment experience covering QR-code checkout, UPI intent, and app redirect flows",
+      "Designed and shipped end-to-end online Vehicle Registration flow integrated with RPA pipeline",
+      "Built guided buyer UX with progress states and validation to significantly reduce drop-offs",
+    ],
+    liveUrl: "https://book.olaelectric.com",
+    githubUrl: "",
+    isLive: true,
+    isGithubUrl: false,
+    category: "Fintech & E-Commerce",
+    gradient: "from-green-600 to-emerald-700",
+  },
+  {
+    id: "ola-companion",
+    title: "Companion Web App",
+    subtitle: "Post-Purchase Platform",
+    description:
+      "Post-purchase web platform for vehicle owners, handling upgrade offers, exchange intents, and marketing campaigns.",
+    technologies: ["Next.js", "React", "Redux Toolkit", "Tailwind CSS"],
+    features: [
+      "Built Upgrade Offer journey with vehicle details and exchange-value estimation for scooter upgrades",
+      "Launched multiple marketing & acquisition campaigns with full analytics tracking and redirect logic",
+      "Built Exchange Intent page so owners can register intent to exchange their scooter",
+      "Shipped internal vehicle-recovery feature used by operations to unblock vehicles after software updates",
+      "Hardened platform security: moved sensitive credentials off client and added cross-origin support",
+    ],
+    liveUrl: null,
+    githubUrl: "",
+    isLive: false,
+    isGithubUrl: false,
+    category: "Web Application",
+    gradient: "from-blue-600 to-indigo-700",
+  },
+  {
+    id: "ola-call-analytics",
+    title: "Call Analytics Platform",
+    subtitle: "AI-Powered Call Insights",
+    description:
+      "Internal full-stack platform that ingests, transcribes, and analyzes sales and service calls to generate performance scoring.",
+    technologies: ["Python", "FastAPI", "MongoDB", "Redis", "React", "AWS S3", "Google Vertex AI"],
+    features: [
+      "Designed and built fine-grained Role-Based Access Control (RBAC) with detailed audit-logging from scratch",
+      "Built Data Analyst chat interface using LLM streaming, session histories, and scheduled queries",
+      "Developed Voice Agent Management workflow with campaign engine and provider load balancing",
+      "Created Exception and Performance Dashboards for leadership with hierarchical filtering and metrics",
+      "Integrated Google Vertex AI with Claude models, handling retry, abort, and latency/observability instrumentation",
+    ],
+    liveUrl: null,
+    githubUrl: "",
+    isLive: false,
+    isGithubUrl: false,
+    category: "AI Platform",
+    gradient: "from-purple-600 to-indigo-600",
+  },
+  {
     id: "kruti-ai",
     title: "Kruti.ai",
-    subtitle: "by Ola",
+    subtitle: "by Ola Krutrim",
     description:
-      "AI-powered content creation platform enabling users to generate high-quality marketing creatives using natural language prompts",
+      "AI-powered content creation platform enabling users to generate high-quality marketing creatives using natural language prompts.",
     technologies: ["Next.js", "Tailwind CSS", "Zustand", "REST APIs", "PWA"],
     features: [
-      "AI-based image and video generation modules",
-      "Prompt scheduling system for automated content generation",
-      "PWA integration with Ola app ecosystem",
-      "Real-time content generation and management",
+      "Implemented AI-based image and video generation modules, improving creative automation",
+      "Developed prompt scheduling system for content generation at specific times",
+      "Integrated Kruti.ai PWA into Ola app ecosystem for seamless access",
+      "Built advanced features like Productivity Agent, Task Agent, and complex widget integrations",
     ],
     liveUrl: "https://kruti.ai",
     githubUrl: "",
     isLive: true,
-    isGithubUrl: false, 
+    isGithubUrl: false,
     category: "AI Platform",
-    gradient: "from-gray-500 to-gray-600",
+    gradient: "from-amber-500 to-orange-600",
   },
   {
-    id: "fluemen-iot",
-    title: "Fluemen-Ita IoT",
-    subtitle: "Industrial IoT Dashboard",
+    id: "ola-drishti",
+    title: "Drishti",
+    subtitle: "AI Retail Intelligence",
     description:
-      "Real-time web application for monitoring and analyzing injection molding machine data, enhancing operational efficiency",
-    technologies: ["React", "Node.js", "MongoDB", "Golain"],
+      "AI-powered retail intelligence platform leveraging store camera feeds for real-time analytics across Ola stores.",
+    technologies: ["Next.js", "TypeScript", "Shadcn UI", "HLS"],
     features: [
-      "Real-time machine monitoring dashboards",
-      "Interactive performance graphs and analytics",
-      "Automated alert systems for maintenance",
-      "Data visualization and trend analysis",
+      "Led frontend development for Drishti retail intelligence platform leveraging store camera feeds",
+      "Built Store Readiness dashboard (cleanliness, readiness, operational health) with breakdown reports",
+      "Developed Sales & Operations dashboards for RSM and ASM roles with KPI metrics and AI alerts",
+      "Integrated live camera feeds via HLS streaming to visualize real-time store activity in dashboards",
+      "Built scalable, reusable UI components and deployed production-ready dashboards across Ola retail operations",
     ],
-    liveUrl: "",
+    liveUrl: null,
     githubUrl: "",
     isLive: false,
     isGithubUrl: false,
-    category: "IoT Platform",
-    gradient: "from-gray-400 to-gray-500",
+    category: "Computer Vision",
+    gradient: "from-red-500 to-rose-600",
   },
   {
     id: "videostream",
     title: "VideoStream Platform",
     subtitle: "Scalable Video Backend",
     description:
-      "Engineered backend for a scalable video streaming platform with comprehensive user management and subscription system",
+      "Engineered backend for a scalable video streaming platform with comprehensive user management and subscription system.",
     technologies: ["Node.js", "Express", "MongoDB", "Cloudinary"],
     features: [
       "JWT authentication with refresh tokens",

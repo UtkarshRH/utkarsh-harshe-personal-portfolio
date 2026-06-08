@@ -10,4 +10,6 @@ export interface Project {
   isLive: boolean
   category: string
   gradient: string
+  isGithubUrl?: boolean
 }
+

@@ -3,13 +3,13 @@ const StructuredData = () => {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Utkarsh Rajendra Harshe",
-    jobTitle: "Full Stack Developer",
-    description: "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and AI technologies.",
+    jobTitle: "SDE 1",
+    description: "Experienced SDE 1 specializing in React, Next.js, Node.js, and AI engineering.",
     url: "https://utkarshharshe.dev",
-    sameAs: ["https://github.com/UtkarshRH", "https://linkedin.com/in/utkarsh-harshe"],
+    sameAs: ["https://github.com/UtkarshRH", "https://linkedin.com/in/utkarsh-r-harshe"],
     worksFor: {
       "@type": "Organization",
-      name: "TBP CODOT LLP",
+      name: "Ola",
     },
     address: {
       "@type": "PostalAddress",
