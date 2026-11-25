@@ -25,45 +25,27 @@ interface Experience {
 const ExperienceSection = () => {
   const experiences: Experience[] = [
     {
-      title: "SDE 1 (Full-time)",
-      company: "Ola",
+      title: "Software Development Engineer I",
+      company: "Ola Electric",
       period: "Dec 2025 – Present",
-      location: "Bangalore, KA",
-      roles: [
-        {
-          title: "Ola Electric — Purchase, Companion App & Call Analytics",
-          period: "Apr 2026 – Present",
-          achievements: [
-            "Transitioned internally from Ola Krutrim to Ola Electric, contributing across the customer purchase journey, post-purchase companion app, and an AI-driven call analytics platform for sales and service teams.",
-            "Shipped features end-to-end across payments, financing, marketing campaigns, role-based access, and AI dashboards, working across React/Next.js frontends and a Python (FastAPI) backend.",
-            "Collaborated with backend, AI/ML, design, and product teams to deliver production releases on a fast iteration cadence."
-          ]
-        },
-        {
-          title: "Ola Krutrim — Kruti.ai & Drishti",
-          period: "Dec 2025 – Apr 2026",
-          achievements: [
-            "Converted from vendor to full-time SDE 1, owning frontend delivery for Kruti.ai (AI content generation) and Drishti (camera-based store analytics).",
-            "Shipped camera-based analytics and real-time insights to production for internal business and operations teams.",
-            "Drove frontend architecture, performance optimization, and production stability for live enterprise dashboards."
-          ]
-        }
+      location: "Bangalore, India",
+      achievements: [
+        "Develop production features across DMS, Ola Retail App and customer purchase workflows using React, Next.js and TypeScript.",
+        "Build and integrate Java REST APIs for inventory, VIN transfers, dealer insights, invoices, payment accounts and operational reporting.",
+        "Contribute to dealer workflows spanning vehicle fulfilment, registration, payments, inventory and dealer finance; investigate production issues and implement root-cause fixes.",
+        "Built an internal Pull Request Review Bot that checks PRs every 30 minutes, summarizes changes, flags issues, posts comments, emails owners and supports approval when no blockers are found."
       ],
       gradient: "from-white to-gray-50",
       borderColor: "gray-200",
     },
     {
-      title: "Full Stack Developer",
-      company: "TBP CODOT LLP (Vendor at Ola Krutrim)",
+      title: "Full Stack Developer (Vendor at Ola Krutrim)",
+      company: "TBP CODOT LLP",
       period: "Mar 2025 – Nov 2025",
-      location: "Bangalore, KA",
+      location: "Bangalore, India",
       achievements: [
-        "Worked as a Full Stack Developer on Ola’s Kruti.ai, an AI-powered platform for branded content generation.",
-        "Developed and maintained scalable, high-performance web interfaces using Next.js, Tailwind CSS, and Zustand.",
-        "Integrated and optimized multiple REST APIs, ensuring reliable data flow and improving response efficiency.",
-        "Built a Voice Mode POC, enabling users to interact with Kruti.ai through speech and receive AI-generated responses in voice.",
-        "Worked on PWA integration with the Ola app (Krutrim), embedding Kruti.ai inside the Ola ecosystem for seamless access.",
-        "Enhanced frontend performance and stability, leading to a 30% improvement in load speed and better user engagement."
+        "Developed React, JavaScript and TypeScript features, reusable UI components and responsive application workflows.",
+        "Integrated REST APIs, managed frontend state and resolved application issues in collaboration with backend and product teams."
       ],
       gradient: "from-gray-50 to-white",
       borderColor: "gray-200",
@@ -72,13 +54,10 @@ const ExperienceSection = () => {
       title: "Software Developer",
       company: "SmartLeaven Technology",
       period: "Feb 2024 – Mar 2025",
-      location: "Pune, Maharashtra",
+      location: "Pune, India",
       achievements: [
-        "Developed dynamic, interactive front-end solutions using React.js, enhancing user engagement and interface responsiveness.",
-        "Built responsive web applications using JavaScript, HTML, CSS, and Bootstrap, ensuring cross-browser compatibility.",
-        "Designed and optimized RESTful APIs using Node.js, enabling seamless data flow and improved application performance.",
-        "Collaborated in Agile teams to deliver scalable features within tight deadlines through effective sprint planning and reviews.",
-        "Gained hands-on experience in React.js, JavaScript, MySQL, and end-to-end development using the MERN stack."
+        "Built web application components using JavaScript and React, including responsive interfaces and form validations.",
+        "Integrated REST APIs, debugged application issues and delivered feature enhancements with the development team."
       ],
       gradient: "from-white to-gray-100",
       borderColor: "gray-200",

@@ -10,7 +10,7 @@ import Image from "next/image"
 
 const HeroSection = () => {
   const [typedText, setTypedText] = useState("")
-  const fullText = "Full Stack Developer & AI Engineer"
+  const fullText = "Full Stack Software Engineer"
 
   useEffect(() => {
     let index = 0
@@ -128,9 +128,9 @@ const HeroSection = () => {
             </div>
 
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-mono">
-              {">"} Building next-generation web applications with React, Next.js, and AI technologies
+              {">"} Building production applications across dealer management, retail operations, purchase journeys, and AI platforms
               <br />
-              {">"} SDE 1 (Full-time) at Ola | Contributing to Ola Electric & Call Analytics
+              {">"} Software Development Engineer I at Ola Electric | React, Next.js, TypeScript, Java, Node.js & Python
             </p>
           </motion.div>
 
@@ -150,7 +150,7 @@ const HeroSection = () => {
               View Projects
             </Button>
             <Button
-              onClick={() => window.open("/UtkarshRH.pdf", "_blank")}
+              onClick={() => window.open("/Utkarsh_Harshe.pdf", "_blank")}
               variant="outline"
               size="lg"
               className="border-2 border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 font-mono px-6 sm:px-8 py-3 hover:shadow-lg hover:shadow-gray-500/25 transition-all duration-300 rounded-lg"

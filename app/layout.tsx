@@ -17,22 +17,22 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Utkarsh Harshe - SDE 1 at Ola | Full Stack Developer & AI Engineer",
+  title: "Utkarsh Harshe - Full Stack Software Engineer | SDE I at Ola Electric",
   description:
-    "Experienced SDE 1 specializing in React, Next.js, Node.js, and AI engineering. Currently at Ola contributing to Ola Electric and AI call analytics. Based in Bangalore, India.",
+    "Full Stack Software Engineer experienced in building production applications across dealer management, retail operations, purchase journeys, and AI platforms. Skilled in React, Next.js, TypeScript, Java, Node.js, and Python.",
   keywords: [
+    "Full Stack Software Engineer",
     "Full Stack Developer",
     "React Developer",
     "Next.js Developer",
+    "TypeScript Developer",
+    "Java Developer",
     "Node.js Developer",
-    "AI Engineer",
-    "JavaScript Developer",
-    "Frontend Developer",
-    "Backend Developer",
+    "Python Developer",
+    "FastAPI",
     "Utkarsh Harshe",
     "Ola Electric",
-    "Ola Krutrim",
-    "Ola",
+    "Dealer Management System",
     "Bangalore Developer",
   ],
   authors: [{ name: "Utkarsh Harshe" }],
@@ -42,16 +42,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://utkarshharshe.dev",
-    title: "Utkarsh Harshe - SDE 1 at Ola | Full Stack Developer & AI Engineer",
+    title: "Utkarsh Harshe - Full Stack Software Engineer | SDE I at Ola Electric",
     description:
-      "Experienced SDE 1 specializing in React, Next.js, Node.js, and AI engineering. Currently at Ola contributing to Ola Electric.",
+      "Full Stack Software Engineer experienced in building production applications across dealer management, retail operations, purchase journeys, and AI platforms.",
     siteName: "Utkarsh Harshe Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Utkarsh Harshe - SDE 1 at Ola | Full Stack Developer & AI Engineer",
+    title: "Utkarsh Harshe - Full Stack Software Engineer | SDE I at Ola Electric",
     description:
-      "Experienced SDE 1 specializing in React, Next.js, Node.js, and AI engineering. Currently at Ola contributing to Ola Electric.",
+      "Full Stack Software Engineer experienced in building production applications across dealer management, retail operations, purchase journeys, and AI platforms.",
   },
   robots: {
     index: true,

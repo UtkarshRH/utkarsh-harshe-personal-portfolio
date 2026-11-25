@@ -153,33 +153,27 @@ const AboutSection = () => {
               </h3>
               <div className="space-y-4 text-gray-700 font-mono dark:text-gray-300">
                 <p className="text-base sm:text-lg leading-relaxed">
-                  <span className="text-gray-600 dark:text-gray-400">{">"}</span> Passionate Full
-                  Stack Developer with expertise in cutting-edge web
-                  technologies
+                  <span className="text-gray-600 dark:text-gray-400">{">"}</span> Full Stack Software Engineer experienced in building production applications across dealer management, retail operations, purchase journeys, and AI platforms
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed">
-                  <span className="text-gray-600 dark:text-gray-400">{">"}</span> Currently
-                  working as an SDE 1 (Full-time) at Ola, contributing to Ola Electric
-                  platforms
+                  <span className="text-gray-600 dark:text-gray-400">{">"}</span> Currently working as a Software Development Engineer I at Ola Electric in Bangalore
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed">
-                  <span className="text-gray-600 dark:text-gray-400">{">"}</span> Specializing in
-                  React, Next.js, Node.js, and AI-powered applications
+                  <span className="text-gray-600 dark:text-gray-400">{">"}</span> Skilled in React, Next.js, TypeScript, Java, Node.js, and Python
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed">
-                  <span className="text-gray-600 dark:text-gray-400">{">"}</span> Building bridges
-                  between technology and human creativity
+                  <span className="text-gray-600 dark:text-gray-400">{">"}</span> Hands-on experience in inventory, VIN allocation, payments, fulfilment, integrations, and production debugging
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-4 pt-4">
                 <div className="flex items-center space-x-2 text-gray-600 font-mono dark:text-gray-400">
                   <MapPin className="w-5 h-5" />
-                  <span>Bangalore, Karnataka</span>
+                  <span>Bangalore, India</span>
                 </div>
                 <div className="flex items-center space-x-2 text-gray-600 font-mono dark:text-gray-400">
                   <Briefcase className="w-5 h-5" />
-                  <span>Full Stack Developer</span>
+                  <span>Full Stack Software Engineer</span>
                 </div>
               </div>
             </motion.div>

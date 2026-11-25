@@ -13,21 +13,19 @@ const EducationSection = () => {
       field: "Computer Science and Engineering",
       institution: "Karmaveer Dadasaheb Kannamwar College of Engineering",
       period: "2019 – 2023",
-      location: "Nagpur, Maharashtra",
+      location: "Nagpur, India",
     },
     {
-      degree: "Higher Secondary Certificate",
-      field: "Math and Science",
+      degree: "Higher Secondary Certificate (HSC)",
+      field: "Science & Mathematics",
       institution: "Nandalal Patil Kapgate Junior College",
       period: "2017 – 2019",
-      location: "Nagpur, Maharashtra",
+      location: "India",
     },
   ]
 
   const certifications = [
-    "Java Development – Core Java, OOPs, JDBC, Hibernate",
-    "UI Designer",
-    "React-Js, HTML/CSS/Bootstrap – Frontend fundamentals and responsive design",
+    "Java Development Diploma – VibrantMinds Technologies Pvt. Ltd. (Core Java, OOPs, JDBC, Hibernate, Spring, REST APIs and MySQL)",
   ]
 
   const hobbies = ["Swimming", "Cricket", "Reading"]
@@ -80,7 +78,7 @@ const EducationSection = () => {
           >
             <h3 className="text-2xl font-mono font-bold text-gray-800 mb-6 flex items-center dark:text-gray-100">
               <Award className="w-8 h-8 text-gray-600 mr-3 dark:text-gray-400" />
-              CERTIFICATIONS
+              TRAINING
             </h3>
 
             <div className="space-y-4">

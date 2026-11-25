@@ -113,7 +113,7 @@ const Navigation = () => {
               </motion.button>
             ))}
             <motion.button
-              onClick={() => window.open("/UtkarshRH.pdf", "_blank")}
+              onClick={() => window.open("/Utkarsh_Harshe.pdf", "_blank")}
               className="px-4 py-2 text-sm font-mono transition-all duration-300 border border-transparent hover:border-gray-400/50 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-800 dark:hover:border-gray-600 text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -163,7 +163,7 @@ const Navigation = () => {
               ))}
               <button
                 onClick={() => {
-                  window.open("/UtkarshRH.pdf", "_blank")
+                  window.open("/Utkarsh_Harshe.pdf", "_blank")
                   setIsMobileMenuOpen(false)
                 }}
                 className="px-4 py-2 text-left font-mono transition-colors rounded-lg text-gray-600 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800"
