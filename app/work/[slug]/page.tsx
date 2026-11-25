@@ -8,6 +8,7 @@ import Footer from "@/components/layout/Footer";
 import AmbientDepthBackground from "@/components/layout/AmbientDepthBackground";
 import ProjectMockup from "@/components/work/ProjectMockup";
 import ArchitectureDiagram from "@/components/work/ArchitectureDiagram";
+import OlaRetailEditorialCaseStudy from "@/components/work/OlaRetailEditorialCaseStudy";
 import {
   SELECTED_PROJECTS,
   SITE_CONFIG,
@@ -66,6 +67,10 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
   }
 
   const { prev, next } = getAdjacentProjects(project.slug);
+
+  if (project.slug === "ola-retail-app") {
+    return <OlaRetailEditorialCaseStudy project={project} prev={prev} next={next} />;
+  }
 
   return (
     <div className="relative min-h-screen bg-[#111318] text-[#F5F5F6] flex flex-col">

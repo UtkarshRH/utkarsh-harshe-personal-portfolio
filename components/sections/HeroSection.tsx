@@ -25,9 +25,9 @@ const HeroSection: React.FC = () => {
     >
       <div className="max-w-[1160px] mx-auto px-5 sm:px-8">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, ease: "easeOut" }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end"
         >
           {/* Left Column: Core Identity & Editorial Statement */}
