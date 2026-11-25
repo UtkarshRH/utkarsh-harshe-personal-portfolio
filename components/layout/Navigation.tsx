@@ -1,181 +1,217 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { Terminal, Menu, X, Sun, Moon } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import GlitchText from "@/components/ui/GlitchText"
-import { useTheme } from "next-themes"
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { ArrowDownToLine, Menu, X } from "lucide-react";
+import { SITE_CONFIG } from "@/data/portfolio";
 
-const Navigation = () => {
-  const [activeSection, setActiveSection] = useState("hero")
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { theme, setTheme, systemTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+const NAV_LINKS = [
+  { id: "about", label: "About" },
+  { id: "work", label: "Work" },
+  { id: "experience", label: "Experience" },
+  { id: "skills", label: "Skills" },
+  { id: "contact", label: "Contact" },
+];
 
-  const navItems = ["About", "Experience", "Projects", "Skills", "Contact"]
+const Navigation: React.FC = () => {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const [activeSection, setActiveSection] = useState<string>("");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 24);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["hero", "about", "experience", "projects", "skills", "education", "contact"]
-      const scrollPosition = window.scrollY + 100
+    if (!isHome) {
+      setActiveSection(pathname.startsWith("/work") ? "work" : "");
+      return;
+    }
 
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
-          }
-        }
+    const sectionIds = NAV_LINKS.map((item) => item.id);
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(id);
+            }
+          });
+        },
+        { rootMargin: "-35% 0px -50% 0px", threshold: 0 }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, [isHome, pathname]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string
+  ) => {
+    setMobileOpen(false);
+    if (isHome) {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth" });
+        window.history.replaceState(null, "", `#${sectionId}`);
       }
     }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-      setIsMobileMenuOpen(false)
-    }
-  }
-
-  const renderThemeChanger = () => {
-    if (!mounted) return null
-
-    const currentTheme = theme === "system" ? systemTheme : theme
-
-    if (currentTheme === "dark") {
-      return (
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setTheme("light")}
-          className="text-yellow-400 hover:bg-yellow-100"
-          aria-label="Switch to light mode"
-          title="Switch to light mode"
-        >
-          <Sun className="w-5 h-5" />
-        </Button>
-      )
-    } else {
-      return (
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setTheme("dark")}
-          className="text-gray-700 hover:bg-gray-200"
-          aria-label="Switch to dark mode"
-          title="Switch to dark mode"
-        >
-          <Moon className="w-5 h-5" />
-        </Button>
-      )
-    }
-  }
+  };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-sm dark:bg-gray-900 dark:border-gray-700">
-      <div className="container mx-auto px-4 sm:px-6 py-4">
-        <div className="flex justify-between items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center space-x-2"
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 border-b ${
+        isScrolled
+          ? "bg-[#111318]/92 backdrop-blur-md border-[#303540]"
+          : "bg-[#111318]/75 backdrop-blur-sm border-[#303540]/50"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+        <div className="h-16 sm:h-[72px] flex items-center justify-between gap-4">
+          {/* Personal Wordmark */}
+          <Link
+            href="/"
+            className="font-heading text-sm sm:text-[15px] font-semibold tracking-[0.12em] text-[#F4F5F7] hover:text-white transition-colors whitespace-nowrap"
           >
-            <Terminal className="w-6 h-6 text-gray-600 dark:text-gray-300" />
-            <GlitchText className="text-xl sm:text-2xl font-mono font-bold text-gray-600 dark:text-gray-300">UTKARSH.DEV</GlitchText>
-          </motion.div>
+            {SITE_CONFIG.wordmark}
+            <span className="text-[#6685FF]">.</span>
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => (
-              <motion.button
-                key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
-                className={`px-4 py-2 text-sm font-mono transition-all duration-300 border border-transparent hover:border-gray-400/50 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-800 dark:hover:border-gray-600 ${
-                  activeSection === item.toLowerCase()
-                    ? "text-gray-600 bg-gray-100 border-gray-400/50 dark:text-gray-300 dark:bg-gray-800 dark:border-gray-600"
-                    : "text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white"
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {`<${item.toLowerCase()}/>`}
-              </motion.button>
-            ))}
-            <motion.button
-              onClick={() => window.open("/Utkarsh_Harshe.pdf", "_blank")}
-              className="px-4 py-2 text-sm font-mono transition-all duration-300 border border-transparent hover:border-gray-400/50 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-800 dark:hover:border-gray-600 text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {"<resume/>"}
-            </motion.button>
-            {renderThemeChanger()}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
-              aria-label="Toggle menu"
-              title="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </Button>
-            {renderThemeChanger()}
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700"
+          <nav
+            aria-label="Primary navigation"
+            className="hidden md:flex items-center gap-1 lg:gap-2"
           >
-            <div className="flex flex-col space-y-2 pt-4">
-              {navItems.map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`px-4 py-2 text-left font-mono transition-colors rounded-lg ${
-                    activeSection === item.toLowerCase()
-                      ? "text-gray-600 bg-gray-100 dark:text-gray-300 dark:bg-gray-800"
-                      : "text-gray-600 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800"
+            {NAV_LINKS.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <Link
+                  key={item.id}
+                  href={`/#${item.id}`}
+                  onClick={(e) => handleNavClick(e, item.id)}
+                  className={`relative px-3.5 py-2 text-sm font-sans transition-colors rounded-sm ${
+                    isActive
+                      ? "text-[#F4F5F7]"
+                      : "text-[#A3AAB6] hover:text-[#F4F5F7]"
                   }`}
                 >
-                  {`<${item.toLowerCase()}/>`}
-                </button>
-              ))}
-              <button
-                onClick={() => {
-                  window.open("/Utkarsh_Harshe.pdf", "_blank")
-                  setIsMobileMenuOpen(false)
-                }}
-                className="px-4 py-2 text-left font-mono transition-colors rounded-lg text-gray-600 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800"
-              >
-                {"<resume/>"}
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </div>
-    </nav>
-  )
-}
+                  {item.label}
+                  {isActive && (
+                    <span
+                      aria-hidden="true"
+                      className="absolute left-3.5 right-3.5 -bottom-[1px] h-[2px] bg-[#6685FF]"
+                    />
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
 
-export default Navigation
+          {/* Desktop Resume CTA & Mobile Trigger */}
+          <div className="flex items-center gap-3">
+            <a
+              href={SITE_CONFIG.resumePath}
+              download="Utkarsh_Harshe_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 text-xs font-mono uppercase tracking-[0.08em] text-[#F4F5F7] bg-[#1B1E25] hover:bg-[#232731] border border-[#303540] hover:border-[#6685FF]/60 rounded-sm transition-colors"
+            >
+              <span>Resume</span>
+              <ArrowDownToLine className="w-3.5 h-3.5 text-[#6685FF]" aria-hidden="true" />
+            </a>
+
+            <button
+              type="button"
+              onClick={() => setMobileOpen((prev) => !prev)}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation"
+              aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+              className="md:hidden inline-flex items-center justify-center w-10 h-10 border border-[#303540] bg-[#1B1E25] text-[#F4F5F7] rounded-sm hover:border-[#6685FF]/60 transition-colors"
+            >
+              {mobileOpen ? (
+                <X className="w-5 h-5" aria-hidden="true" />
+              ) : (
+                <Menu className="w-5 h-5" aria-hidden="true" />
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Navigation Drawer */}
+      {mobileOpen && (
+        <div
+          id="mobile-navigation"
+          className="md:hidden border-t border-[#303540] bg-[#111318]"
+        >
+          <nav
+            aria-label="Mobile navigation"
+            className="max-w-7xl mx-auto px-5 py-5 flex flex-col gap-1"
+          >
+            {NAV_LINKS.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <Link
+                  key={item.id}
+                  href={`/#${item.id}`}
+                  onClick={(e) => handleNavClick(e, item.id)}
+                  className={`flex items-center justify-between px-3 py-3 text-base font-sans border-b border-[#303540]/60 transition-colors ${
+                    isActive ? "text-[#F4F5F7]" : "text-[#A3AAB6] hover:text-[#F4F5F7]"
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {isActive && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6685FF]" />
+                  )}
+                </Link>
+              );
+            })}
+
+            <a
+              href={SITE_CONFIG.resumePath}
+              download="Utkarsh_Harshe_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="mt-4 inline-flex items-center justify-center gap-2 px-4 py-3 text-xs font-mono uppercase tracking-[0.1em] text-[#F4F5F7] bg-[#1B1E25] border border-[#303540] rounded-sm"
+            >
+              <span>Download Résumé (PDF)</span>
+              <ArrowDownToLine className="w-4 h-4 text-[#6685FF]" aria-hidden="true" />
+            </a>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Navigation;

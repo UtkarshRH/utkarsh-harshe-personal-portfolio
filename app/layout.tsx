@@ -1,57 +1,78 @@
 import type React from "react";
-import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
-
-// Analytics imports
+import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-
-// Speed Insights import
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SITE_CONFIG } from "@/data/portfolio";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#111318",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "Utkarsh Harshe - Full Stack Software Engineer | SDE I at Ola Electric",
+  metadataBase: new URL(SITE_CONFIG.siteUrl),
+  title: {
+    default: `${SITE_CONFIG.name} — Software Engineer | ${SITE_CONFIG.role}`,
+    template: `%s`,
+  },
   description:
-    "Full Stack Software Engineer experienced in building production applications across dealer management, retail operations, purchase journeys, and AI platforms. Skilled in React, Next.js, TypeScript, Java, Node.js, and Python.",
+    "Utkarsh Harshe is a Software Engineer (SDE I at Ola Electric) in Bengaluru focused on frontend architecture and full-stack product development with React, Next.js, TypeScript, Java, Node.js, and FastAPI.",
   keywords: [
-    "Full Stack Software Engineer",
-    "Full Stack Developer",
-    "React Developer",
-    "Next.js Developer",
-    "TypeScript Developer",
-    "Java Developer",
-    "Node.js Developer",
-    "Python Developer",
-    "FastAPI",
     "Utkarsh Harshe",
+    "Utkarsh Rajendra Harshe",
+    "Software Engineer",
+    "Frontend Engineer",
+    "Full Stack Software Engineer",
+    "SDE I",
     "Ola Electric",
-    "Dealer Management System",
-    "Bangalore Developer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "FastAPI",
+    "Bengaluru",
   ],
-  authors: [{ name: "Utkarsh Harshe" }],
-  creator: "Utkarsh Harshe",
-  publisher: "Utkarsh Harshe",
+  authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.siteUrl }],
+  creator: SITE_CONFIG.name,
+  publisher: SITE_CONFIG.name,
+  alternates: {
+    canonical: SITE_CONFIG.siteUrl,
+  },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://utkarshharshe.dev",
-    title: "Utkarsh Harshe - Full Stack Software Engineer | SDE I at Ola Electric",
+    locale: "en_IN",
+    url: SITE_CONFIG.siteUrl,
+    title: `${SITE_CONFIG.name} — Software Engineer | ${SITE_CONFIG.role}`,
     description:
-      "Full Stack Software Engineer experienced in building production applications across dealer management, retail operations, purchase journeys, and AI platforms.",
-    siteName: "Utkarsh Harshe Portfolio",
+      "Software Engineer focused on frontend architecture and full-stack product development across retail PWAs, dealer management platforms, and AI systems.",
+    siteName: `${SITE_CONFIG.name} Portfolio`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Utkarsh Harshe - Full Stack Software Engineer | SDE I at Ola Electric",
+    title: `${SITE_CONFIG.name} — Software Engineer | ${SITE_CONFIG.role}`,
     description:
-      "Full Stack Software Engineer experienced in building production applications across dealer management, retail operations, purchase journeys, and AI platforms.",
+      "Software Engineer focused on frontend architecture and full-stack product development across retail PWAs, dealer management platforms, and AI systems.",
   },
   robots: {
     index: true,
@@ -64,10 +85,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
-  generator: "v0.dev",
 };
 
 export default function RootLayout({
@@ -78,18 +95,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
-      suppressHydrationWarning
+      className={`dark ${manrope.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
-      <head>
-        <link rel="canonical" href="https://utkarshharshe.dev" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#f9fafb" />
-      </head>
-      <body className="font-sans antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-        </ThemeProvider>
+      <body className="font-sans bg-[#111318] text-[#F4F5F7] antialiased">
+        {children}
         <Analytics />
         <SpeedInsights />
       </body>

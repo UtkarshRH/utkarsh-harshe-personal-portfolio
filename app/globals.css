@@ -4,26 +4,25 @@
 
 @layer base {
   :root {
-    /* Clean Minimal Gray Theme */
-    --background: 249 250 251; /* gray-50 */
-    --foreground: 17 24 39; /* gray-900 */
-    --card: 255 255 255; /* white */
-    --card-foreground: 17 24 39; /* gray-900 */
-    --popover: 255 255 255; /* white */
-    --popover-foreground: 17 24 39; /* gray-900 */
-    --primary: 55 65 81; /* gray-700 */
-    --primary-foreground: 255 255 255; /* white */
-    --secondary: 243 244 246; /* gray-100 */
-    --secondary-foreground: 55 65 81; /* gray-700 */
-    --muted: 243 244 246; /* gray-100 */
-    --muted-foreground: 107 114 128; /* gray-500 */
-    --accent: 249 250 251; /* gray-50 */
-    --accent-foreground: 55 65 81; /* gray-700 */
-    --destructive: 239 68 68; /* red-500 */
-    --destructive-foreground: 255 255 255; /* white */
-    --border: 229 231 235; /* gray-200 */
-    --input: 229 231 235; /* gray-200 */
-    --ring: 55 65 81; /* gray-700 */
+    --background: 223 17% 8%; /* #111318 */
+    --foreground: 220 18% 96%; /* #F4F5F7 */
+    --card: 222 16% 13%; /* #1B1E25 */
+    --card-foreground: 220 18% 96%;
+    --popover: 223 17% 17%; /* #232731 */
+    --popover-foreground: 220 18% 96%;
+    --primary: 228 100% 70%; /* #6685FF */
+    --primary-foreground: 223 17% 8%;
+    --secondary: 222 16% 13%;
+    --secondary-foreground: 220 18% 96%;
+    --muted: 223 17% 17%;
+    --muted-foreground: 218 12% 68%; /* #A3AAB6 */
+    --accent: 223 17% 17%;
+    --accent-foreground: 220 18% 96%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 220 18% 96%;
+    --border: 221 14% 22%; /* #303540 */
+    --input: 221 14% 22%;
+    --ring: 228 100% 70%;
     --radius: 0.5rem;
   }
 }
@@ -32,37 +31,70 @@
   * {
     @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #111318;
+    color: #F4F5F7;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: #111318;
+    color: #F4F5F7;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(102, 133, 255, 0.28);
+    color: #F4F5F7;
+  }
+
+  :focus-visible {
+    outline: 2px solid #6685FF;
+    outline-offset: 2px;
   }
 }
 
-html {
-  scroll-behavior: smooth;
+@layer utilities {
+  .bg-architectural-grid {
+    background-image:
+      linear-gradient(to right, rgba(48, 53, 64, 0.28) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(48, 53, 64, 0.28) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
 }
 
-.font-mono {
-  font-family: var(--font-mono), ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
-}
-
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100;
+  background: #111318;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-400 rounded;
+  background: #303540;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-500;
+  background: #434a59;
 }
 
-/* Smooth transitions */
-* {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

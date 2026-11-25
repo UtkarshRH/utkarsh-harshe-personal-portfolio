@@ -1,40 +1,53 @@
-const StructuredData = () => {
+import React from "react";
+import { SITE_CONFIG } from "@/data/portfolio";
+
+const StructuredData: React.FC = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Utkarsh Rajendra Harshe",
-    jobTitle: "Full Stack Software Engineer",
-    description:
-      "Full Stack Software Engineer experienced in building production applications across dealer management, retail operations, purchase journeys, and AI platforms.",
-    url: "https://utkarshharshe.dev",
-    sameAs: ["https://github.com/UtkarshRH", "https://linkedin.com/in/utkarsh-r-harshe"],
+    name: SITE_CONFIG.fullName,
+    alternateName: SITE_CONFIG.name,
+    jobTitle: "SDE I",
+    description: SITE_CONFIG.supportingIntro,
+    url: SITE_CONFIG.siteUrl,
+    sameAs: [SITE_CONFIG.github, SITE_CONFIG.linkedin],
     worksFor: {
       "@type": "Organization",
       name: "Ola Electric",
     },
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Bangalore",
+      addressLocality: "Bengaluru",
       addressRegion: "Karnataka",
-      addressCountry: "India",
+      addressCountry: "IN",
     },
-    email: "utkarshharshe06@gmail.com",
-    telephone: "+91-9022791408",
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "KDK College of Engineering",
+    },
+    email: `mailto:${SITE_CONFIG.email}`,
     knowsAbout: [
-      "JavaScript",
-      "TypeScript",
       "React",
       "Next.js",
-      "Java",
+      "TypeScript",
+      "JavaScript",
       "Node.js",
+      "Java",
       "Python",
       "FastAPI",
-      "Full Stack Development",
-      "AI Platforms",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Redis",
     ],
-  }
+  };
 
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-}
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+    />
+  );
+};
 
-export default StructuredData
+export default StructuredData;
