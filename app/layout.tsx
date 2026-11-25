@@ -97,7 +97,7 @@ export default function RootLayout({
       lang="en"
       className={`dark ${manrope.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="font-sans bg-[#111318] text-[#F4F5F7] antialiased">
+      <body className="font-sans bg-[#111318] text-[#F5F5F6] antialiased">
         {children}
         <Analytics />
         <SpeedInsights />

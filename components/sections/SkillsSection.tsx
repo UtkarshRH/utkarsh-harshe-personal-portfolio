@@ -11,49 +11,47 @@ const SkillsSection: React.FC = () => {
   return (
     <section
       id="skills"
-      className="py-20 sm:py-28 border-b border-[#303540]/80 bg-transparent"
+      className="py-20 sm:py-28 border-b border-[#2A2E37]"
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div className="max-w-[1160px] mx-auto px-5 sm:px-8">
         <EditorialHeader
-          eyebrow="04 / TECHNICAL SKILLS"
+          eyebrow="Technical Expertise"
           title="Core technologies and tools."
           description="Technologies used directly in production systems, backend services, and daily engineering workflows."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SKILL_GROUPS.map((group, idx) => (
-            <motion.div
+        <motion.div
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.4 }}
+          className="divide-y divide-[#2A2E37] border-t border-b border-[#2A2E37]"
+        >
+          {SKILL_GROUPS.map((group) => (
+            <div
               key={group.category}
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: idx * 0.04 }}
-              className="border border-[#303540] bg-[#1B1E25]/85 backdrop-blur-sm rounded-sm p-6 flex flex-col justify-between"
+              className="py-6 sm:py-7 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-baseline"
             >
-              <div>
-                <div className="flex items-center justify-between pb-4 mb-5 border-b border-[#303540]">
-                  <h3 className="font-heading text-lg font-semibold text-[#F4F5F7]">
-                    {group.category}
-                  </h3>
-                  <span className="text-xs font-mono text-[#6685FF]">
-                    {group.code}
-                  </span>
-                </div>
-
-                <ul className="flex flex-wrap gap-2">
-                  {group.items.map((skill) => (
-                    <li
-                      key={skill}
-                      className="px-3 py-1.5 text-xs sm:text-[13px] font-mono text-[#F4F5F7] bg-[#111318] border border-[#303540] rounded-sm"
-                    >
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
+              <div className="md:col-span-4 flex items-baseline gap-3">
+                <span className="text-xs font-mono text-[#6685FF]">{group.code}</span>
+                <h3 className="font-heading text-lg sm:text-xl font-semibold text-[#F5F5F6]">
+                  {group.category}
+                </h3>
               </div>
-            </motion.div>
+
+              <div className="md:col-span-8 flex flex-wrap gap-2.5">
+                {group.items.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-3 py-1.5 text-sm text-[#F5F5F6] bg-[#181B21] border border-[#2A2E37] rounded"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
